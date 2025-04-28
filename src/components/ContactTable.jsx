@@ -128,15 +128,7 @@ export default function ContactTable() {
         >
           Prev
         </button>
-<<<<<<< HEAD
-        
-=======
-{/*         <input type="select">{page}
-        <option onchange={()=>setPage(15)}>15</option>
-        <option onchange={()=>setPage(25)}>25</option>
-        <option onchange={()=>setPage(50)}>50</option>
-          </input> */}
->>>>>>> a033cb1cd70f583126a1e4889ece5e968fa3d56e
+
         <span>Page {page}</span>
         <button
           disabled={page * perPage >= filtered.length}
