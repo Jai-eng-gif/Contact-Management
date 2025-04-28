@@ -11,6 +11,7 @@ export default function ContactTable() {
   const [search, setSearch] = useState(""); // Global search state
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [page, setPage] = useState(1);
+  const [perPageList, setPerPageList] = useState(10); // Items per page
 
   // Apply global search across all contact fields before pagination
   const filtered = contacts.filter((c) =>
@@ -25,8 +26,8 @@ export default function ContactTable() {
     return a[sortConfig.key]?.localeCompare(b[sortConfig.key]) * order;
   });
 
-  const perPage = 10;
-  
+  const perPage = perPageList;
+
   const paged = sorted.slice((page - 1) * perPage, page * perPage);
 
   // Reset page when search term changes
@@ -120,7 +121,7 @@ export default function ContactTable() {
         </tbody>
       </table>
 
-      <div className="mt-4 flex justify-between">
+      <div className="mt-4 flex items-center justify-between">
         <button
           disabled={page === 1}
           onClick={() => setPage((p) => p - 1)}
@@ -129,7 +130,21 @@ export default function ContactTable() {
           Prev
         </button>
 
-        <span>Page {page}</span>
+        <div className="flex items-center space-x-2">
+          <span>Page {page}</span>
+          <select
+            value={perPage}
+            onChange={(e) => {
+              setPage(1);
+              setPerPageList(Number(e.target.value));
+            }}
+          >
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+        </div>
         <button
           disabled={page * perPage >= filtered.length}
           onClick={() => setPage((p) => p + 1)}
