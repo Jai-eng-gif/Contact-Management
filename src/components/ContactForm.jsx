@@ -37,7 +37,7 @@ export default function ContactForm() {
       {errors.name && <span className="text-red-500">Name is required</span>}
       
       <input placeholder="Email" {...register('email', { required: true })} className="input" />
-      <input placeholder="Phone" {...register('phone', { required: true })} className="input" />
+      <input type="number" placeholder="Phone" {...register('phone', { required: true })} className="input" />
       <input placeholder="Country" {...register('country')} className="input" />
       <input placeholder="State" {...register('state')} className="input" />
       <input placeholder="City" {...register('city')} className="input" />
