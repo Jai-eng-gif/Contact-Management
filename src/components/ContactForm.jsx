@@ -36,8 +36,10 @@ export default function ContactForm() {
       <input placeholder="Name" {...register('name', { required: true })} className="input" />
       {errors.name && <span className="text-red-500">Name is required</span>}
       
-      <input placeholder="Email" {...register('email', { required: true })} className="input" />
-      <input placeholder="Phone" {...register('phone', { required: true })} className="input" />
+      <input placeholder="Email" {...register('email', { required: true })} className="input" />      
+      <input placeholder="Phone" {...register('phone', { required: true, pattern: /^[0-9]*$/ })} type="number" className="input" />
+      {errors.phone && <span className="text-red-500">Please enter a valid phone number</span>}
+
       <input placeholder="Country" {...register('country')} className="input" />
       <input placeholder="State" {...register('state')} className="input" />
       <input placeholder="City" {...register('city')} className="input" />
