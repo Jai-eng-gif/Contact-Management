@@ -98,11 +98,11 @@ export default function ContactTable() {
         <button disabled={page === 1} onClick={() => setPage(p => p - 1)} className="px-3 py-1 border rounded">
           Prev
         </button>
-        <input type="select">{page}
+{/*         <input type="select">{page}
         <option onchange={()=>setPage(15)}>15</option>
         <option onchange={()=>setPage(25)}>25</option>
         <option onchange={()=>setPage(50)}>50</option>
-          </input>
+          </input> */}
         <span>Page {page}</span>
         <button disabled={(page * perPage) >= filtered.length} onClick={() => setPage(p => p + 1)} className="px-3 py-1 border rounded">
           Next
