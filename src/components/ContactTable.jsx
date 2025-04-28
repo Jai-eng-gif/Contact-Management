@@ -25,6 +25,7 @@ export default function ContactTable() {
   });
 
   const perPage = 10;
+  
   const paged = sorted.slice((page - 1) * perPage, page * perPage);
 
   // Reset page when search term changes
@@ -97,6 +98,10 @@ export default function ContactTable() {
         <button disabled={page === 1} onClick={() => setPage(p => p - 1)} className="px-3 py-1 border rounded">
           Prev
         </button>
+        <input type="select">{page}</input>
+        <option onchange={(e)=>setPage(15)}>15</option>
+        <option onchange={(e)=>setPage(25)}>25</option>
+        <option onchange={(e)=>setPage(50)}>50</option>
         <span>Page {page}</span>
         <button disabled={(page * perPage) >= filtered.length} onClick={() => setPage(p => p + 1)} className="px-3 py-1 border rounded">
           Next
